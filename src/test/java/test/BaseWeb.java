@@ -14,7 +14,7 @@ public class BaseWeb {
     WebDriver driver;
     public MainPage main;
 
-    @BeforeEach
+
     public void start(){
         WebDriverManager.chromedriver().setup();
         //System.out.println("aaaaaaaaaaaaaa it works");
