@@ -33,13 +33,12 @@ public class MyStepdefs extends BaseWeb {
 
         @Then("^Login should fail$")
         public void login_should_fail() {
-
+            main.loginButton();
             main.loginfail();
         }
 
         @Then("^Relogin option should be available$")
         public void relogin_option_should_be_available() {
-
             main.relogin();
         }
 
