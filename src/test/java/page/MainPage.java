@@ -34,7 +34,7 @@ public class MainPage extends BasePage{
 
 
         if(driver.getCurrentUrl().equalsIgnoreCase(
-                "https://www.facebook.com/login/device-based/regular/login/?login_attempt=1&lwv=120&lwc=1348028")){
+                "https://www.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNjE0NjYzNjY2LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D")){
             System.out.println("Test2 Pass");
         } else {
             System.out.println("Test2 Failed");
@@ -46,7 +46,7 @@ public class MainPage extends BasePage{
         //String url = driver.getCurrentUrl();
         //System.out.println(url);
         if(driver.getCurrentUrl().equalsIgnoreCase(
-                "https://www.facebook.com/login/device-based/regular/login/?login_attempt=1&lwv=120&lwc=1348028")){
+                "https://www.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNjE0NjYzNjY2LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D")){
             System.out.println("Test2 Pass");
         } else {
             System.out.println("Test2 Failed");
