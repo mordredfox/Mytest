@@ -31,10 +31,10 @@ public class MainPage extends BasePage{
 
 
     public void loginfail() {
-        //проверочка
+
 
         if(driver.getCurrentUrl().equalsIgnoreCase(
-                "https://www.facebook.com/")){
+                "https://www.facebook.com/login/device-based/regular/login/?login_attempt=1&lwv=120&lwc=1348028")){
             System.out.println("Test2 Pass");
         } else {
             System.out.println("Test2 Failed");
@@ -43,10 +43,10 @@ public class MainPage extends BasePage{
     }
 
     public void relogin() {
-        String url = driver.getCurrentUrl();
-        System.out.println(url);
+        //String url = driver.getCurrentUrl();
+        //System.out.println(url);
         if(driver.getCurrentUrl().equalsIgnoreCase(
-                "https://www.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNjE0NjIwMzQxLCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D")){
+                "https://www.facebook.com/login/device-based/regular/login/?login_attempt=1&lwv=120&lwc=1348028")){
             System.out.println("Test2 Pass");
         } else {
             System.out.println("Test2 Failed");
