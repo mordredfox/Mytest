@@ -1,0 +1,10 @@
+page/BasePage.java
+ page.BasePage
+steps/Runtest.java
+ steps.Runtest
+steps/MyStepdefs.java
+ steps.MyStepdefs
+page/MainPage.java
+ page.MainPage
+test/BaseWeb.java
+ test.BaseWeb

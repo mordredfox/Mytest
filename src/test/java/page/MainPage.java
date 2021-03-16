@@ -1,40 +1,47 @@
 package page;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class MainPage extends BasePage{
-    String SITE_URL="https://www.facebook.com/";
-    public MainPage(WebDriver driver){
+import java.util.List;
+
+public class MainPage extends BasePage {
+    String SITE_URL = "https://www.facebook.com/";
+
+    public MainPage(WebDriver driver) {
         super(driver);
     }
 
-    public void goTo(){
+    public void goTo() {
         driver.get(SITE_URL);
     }
 
-    public void fillInlogin(String login){
-        WebElement element = driver.findElement(By.id("email"));
-        element.sendKeys(login);
+    @FindBy(xpath = "//input[@id='email']")
+    private WebElement fieldEMail;
+
+
+    public void fillInlogin(String login) {
+//        WebElement element = driver.findElement(By.id("email"));
+//        element.sendKeys(login);
+        fieldEMail.sendKeys(login);
     }
 
-    public void fillInPass(String password){
+    public void fillInPass(String password) {
         WebElement element = driver.findElement(By.id("pass"));
         element.sendKeys(password);
     }
 
-    public void loginButton(){
+    public void loginButton() {
         WebElement element = driver.findElement(By.name("login"));
         element.click();
+        WebDriverWait wait = new WebDriverWait(driver, 30);
     }
 
 
     public void loginfail() {
-
-
-        if(driver.getCurrentUrl().equalsIgnoreCase(
-                "https://www.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNjE0NjYzNjY2LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D")){
+        if (driver.getCurrentUrl().equalsIgnoreCase(
+                "https://www.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNjE0NjYzNjY2LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D")) {
             System.out.println("Test2 Pass");
         } else {
             System.out.println("Test2 Failed");
@@ -45,8 +52,8 @@ public class MainPage extends BasePage{
     public void relogin() {
         //String url = driver.getCurrentUrl();
         //System.out.println(url);
-        if(driver.getCurrentUrl().equalsIgnoreCase(
-                "https://www.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNjE0NjYzNjY2LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D")){
+        if (driver.getCurrentUrl().equalsIgnoreCase(
+                "https://www.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNjE0NjYzNjY2LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D")) {
             System.out.println("Test2 Pass");
         } else {
             System.out.println("Test2 Failed");
