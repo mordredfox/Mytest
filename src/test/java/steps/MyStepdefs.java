@@ -16,19 +16,21 @@ public class MyStepdefs extends BaseWeb {
 
 
   @Given("^I am on Facebook login page$")
-  public void i_go_to_facebook() {
+  public void openFacebookPage() {
     main.goTo();
   }
 
 
-  @When("^I enter username as \"(.*)\"$")
-  public void i_enter_username_as(String login) {
-    main.enterTextInEMailfield(login);
-  }
-
-  @When("^I enter password as \"(.*)\"$")
-  public void i_enter_password_as(String password) {
-    main.enterTextInPasswordField(password);
+  @When("^I enter (.*) as \"(.*)\"$")
+  public void enterTextInField(String nameField, String stringText) {
+    switch (nameField){
+      case "username":
+        main.enterTextInEMailfield(stringText);
+        break;
+      case "password":
+        main.enterTextInPasswordField(stringText);
+        break;
+    }
   }
 
   @Then("^Login should fail$")
