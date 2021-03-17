@@ -21,18 +21,18 @@ public class MainPage extends BasePage {
     private WebElement fieldEMail;
 
 
-    public void fillInlogin(String login) {
+    public void enterTextInEMailfield(String login) {
 //        WebElement element = driver.findElement(By.id("email"));
 //        element.sendKeys(login);
         fieldEMail.sendKeys(login);
     }
 
-    public void fillInPass(String password) {
+    public void enterTextInPasswordField(String password) {
         WebElement element = driver.findElement(By.id("pass"));
         element.sendKeys(password);
     }
 
-    public void loginButton() {
+    public void clickLogInButton() {
         WebElement element = driver.findElement(By.name("login"));
         element.click();
         WebDriverWait wait = new WebDriverWait(driver, 30);
