@@ -4,7 +4,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
+import static org.junit.Assert.assertTrue;
 
 public class MainPage extends BasePage {
     String SITE_URL = "https://www.facebook.com/";
@@ -20,43 +20,37 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//input[@id='email']")
     private WebElement fieldEMail;
 
+    @FindBy(xpath = "//input[@id='pass']")
+    private WebElement fieldPassword;
+
+    @FindBy(xpath = "//button[@name='login']")
+    private WebElement buttonLogin;
+
+    @FindBy(xpath = "//a[contains(text(),'Найдите свой аккаунт и войдите в систему.')]")
+    private WebElement messageError;
+
+    @FindBy(xpath = "//button[@id='loginbutton']")
+    private WebElement buttonRelogin;
 
     public void enterTextInEMailfield(String login) {
-//        WebElement element = driver.findElement(By.id("email"));
-//        element.sendKeys(login);
         fieldEMail.sendKeys(login);
     }
 
     public void enterTextInPasswordField(String password) {
-        WebElement element = driver.findElement(By.id("pass"));
-        element.sendKeys(password);
+        fieldPassword.sendKeys(password);
     }
 
     public void clickLogInButton() {
-        WebElement element = driver.findElement(By.name("login"));
-        element.click();
+        buttonLogin.click();
         WebDriverWait wait = new WebDriverWait(driver, 30);
     }
 
 
-    public void loginfail() {
-        if (driver.getCurrentUrl().equalsIgnoreCase(
-                "https://www.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNjE0NjYzNjY2LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D")) {
-            System.out.println("Test2 Pass");
-        } else {
-            System.out.println("Test2 Failed");
-        }
-
+    public void LogInFail() {
+        assertTrue((messageError).isDisplayed());
     }
 
-    public void relogin() {
-        //String url = driver.getCurrentUrl();
-        //System.out.println(url);
-        if (driver.getCurrentUrl().equalsIgnoreCase(
-                "https://www.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNjE0NjYzNjY2LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D")) {
-            System.out.println("Test2 Pass");
-        } else {
-            System.out.println("Test2 Failed");
-        }
+    public void reLogInAvailable() {
+        assertTrue((buttonRelogin).isDisplayed());
     }
 }
