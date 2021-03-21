@@ -1,6 +1,8 @@
 package steps;
 
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -23,7 +25,7 @@ public class MyStepdefs extends BaseWeb {
 
   @When("^I enter (.*) as \"(.*)\"$")
   public void enterTextInField(String nameField, String stringText) {
-    switch (nameField){
+    switch (nameField) {
       case "username":
         main.enterTextInEMailfield(stringText);
         break;
@@ -33,15 +35,23 @@ public class MyStepdefs extends BaseWeb {
     }
   }
 
+  @And("I click on LogIn button")
+  public void iClickOnLogInButton() {
+    main.clickLogInButton();
+  }
+
   @Then("^Login should fail$")
   public void login_should_fail() {
-    main.clickLogInButton();
-    main.loginfail();
+    main.LogInFail();
   }
 
   @Then("^Relogin option should be available$")
   public void relogin_option_should_be_available() {
-    main.relogin();
+    main.reLogInAvailable();
   }
 
+  @After
+  public void finish() {
+    driver.close();
+  }
 }
