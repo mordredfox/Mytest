@@ -5,5 +5,6 @@ Feature: annotation
     Given I am on Facebook login page
     When I enter username as "mord"
     And I enter password as "neroONE"
+    And I click on LogIn button
     Then Login should fail
     But Relogin option should be available
