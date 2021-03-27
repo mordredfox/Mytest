@@ -55,3 +55,8 @@ public class MyStepdefs extends BaseWeb {
     driver.close();
   }
 }
+
+
+/*
+Есть замечание по названию методов camelCase почитайте про него
+*/
