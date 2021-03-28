@@ -12,7 +12,7 @@ import test.BaseWeb;
 public class MyStepdefs extends BaseWeb {
 
   @Before
-  public void INIT() {
+  public void Init() {
     start();
   }
 
@@ -41,17 +41,17 @@ public class MyStepdefs extends BaseWeb {
   }
 
   @Then("^Login should fail$")
-  public void login_should_fail() {
+  public void loginShouldFail() {
     main.LogInFail();
   }
 
   @Then("^Relogin option should be available$")
-  public void relogin_option_should_be_available() {
+  public void reloginShouldAvailable() {
     main.reLogInAvailable();
   }
 
   @After
-  public void finish() {
+  public void Finish() {
     driver.close();
   }
 }
