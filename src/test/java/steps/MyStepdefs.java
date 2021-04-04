@@ -1,6 +1,8 @@
 package steps;
 
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,37 +11,52 @@ import test.BaseWeb;
 
 public class MyStepdefs extends BaseWeb {
 
-    @Before
-    public void INIT(){
-        start();
+  @Before
+  public void Init() {
+    start();
+  }
+
+
+  @Given("^I am on Facebook login page$")
+  public void openFacebookPage() {
+    main.goTo();
+  }
+
+
+  @When("^I enter (.*) as \"(.*)\"$")
+  public void enterTextInField(String nameField, String stringText) {
+    switch (nameField) {
+      case "username":
+        main.enterTextInEMailfield(stringText);
+        break;
+      case "password":
+        main.enterTextInPasswordField(stringText);
+        break;
     }
+  }
 
+  @And("I click on LogIn button")
+  public void iClickOnLogInButton() {
+    main.clickLogInButton();
+  }
 
-        @Given("^I am on Facebook login page$")
-        public void i_go_to_facebook(){
-            main.goTo();
-        }
+  @Then("^Login should fail$")
+  public void loginShouldFail() {
+    main.LogInFail();
+  }
 
+  @Then("^Relogin option should be available$")
+  public void reloginShouldAvailable() {
+    main.reLogInAvailable();
+  }
 
-        @When("^I enter username as \"(.*)\"$")
-        public void i_enter_username_as(String login) {
-            main.fillInlogin(login);
-        }
-
-        @When ("^I enter password as \"(.*)\"$")
-        public void i_enter_password_as(String password) {
-            main.fillInPass(password);
-        }
-
-        @Then("^Login should fail$")
-        public void login_should_fail() {
-            main.loginButton();
-            main.loginfail();
-        }
-
-        @Then("^Relogin option should be available$")
-        public void relogin_option_should_be_available() {
-            main.relogin();
-        }
-
+  @After
+  public void Finish() {
+    driver.close();
+  }
 }
+
+
+/*
+Есть замечание по названию методов camelCase почитайте про него
+*/
