@@ -31,6 +31,7 @@ public class MainPage extends BasePage {
 
     @FindBy(xpath = "(//div/a)[3]")
     private WebElement messageError;
+    //Можно тоже придраться так как привязываться к тексту не самый лучший вариант при условии того, что страница имеет разные языки
 
     @FindBy(xpath = "//button[@id='loginbutton']")
     private WebElement buttonRelogin;
